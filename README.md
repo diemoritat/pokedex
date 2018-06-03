@@ -1,6 +1,8 @@
 # Pokemon Quest Pokedex
 
-> This is a web based Pokédex based on the Pokémon Quest game for Nintendo Switch. 
+This is a web based Pokédex based on the Pokémon Quest game for Nintendo Switch. 
+
+![Pokédex screenshot](./screenshots/screenshot.png)
 
 ## Build Setup
 
