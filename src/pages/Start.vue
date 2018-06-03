@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    {{msg}}
+  <div class="initial">
+    <p class="initial__message">{{msg}}</p>
   </div>
 </template>
 
@@ -15,5 +15,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  .initial {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
 </style>

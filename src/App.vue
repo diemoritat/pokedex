@@ -8,7 +8,9 @@
     </transition>
 
     <!-- <Pokedex/> -->
-    <footer><address></address></footer>
+    <footer>
+      <address>Made by <a href="https://github.com/diemoritat/pokedex">Nayara</a> with 🖤 </address>
+    </footer>
     <div class="decoration decoration--pikachu"></div>
     <div class="decoration decoration--eevee"></div>
     <div class="decoration decoration--charmander"></div>
@@ -55,6 +57,7 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
     padding-bottom: 100px;
     background-image: linear-gradient(125deg,#ffe016 0%, #ffe016 15%, #ffd414 15%, #ffd414 30%, #ffc813 30%, #ffc813 45%, #ffbc13 45%, #ffbc13 60%, #ffb111 60%, #ffb111 75%, #ffa510 75%, #ffa510 90%,#ff9b0f 90%, #ff9b0f 100%);
   }
@@ -113,6 +116,21 @@ export default {
   @keyframes jump {
     50% {
       bottom: -10px;
+    }
+  }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    z-index: 0;
+
+    a {
+      color: #223767;
     }
   }
 </style>
