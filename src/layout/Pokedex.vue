@@ -9,7 +9,7 @@
             <router-link tag="div" :to="item.id" class="pokemon-link" v-for="(item, index) of itemList" :key="index">
               <span class="pokemon-link__id">{{ item.id }}</span>
               <a>
-                <div class="pokemon-link__thumbnail"></div>
+                <img :src="`/static/thumbnails/${item.id}.png`" class="pokemon-link__thumbnail" />
                 <p class="pokemon-link__name">
                   {{ item.name }}
                 </p>
@@ -174,11 +174,12 @@ export default {
             }
 
             &__thumbnail {
-              width: 50px;
-              height: 45px;
+              width: 55px;
+              height: 50px;
+              display: block;
               background-color: #cecece;
               border-radius: 10px;
-              margin: 0 auto 5px;
+              margin: 0 auto;
             }
 
             &__name {
