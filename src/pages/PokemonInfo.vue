@@ -27,9 +27,9 @@ import Loader from '@/components/Loader'
 export default {
   name: 'PokemonInfo',
   components: {
-    'Loader': Loader
+    Loader: Loader
   },
-  data () {
+  data() {
     return {
       loading: false,
       error: null,
@@ -43,16 +43,12 @@ export default {
     }
   },
   methods: {
-    fetchData () {
-      this.loading = true
-
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-      const apiUrl = 'http://pokeapi.co/api/v2/pokemon/'
-
-      axios.get(proxyUrl + apiUrl + this.$route.params.id)
+    fetchData() {
+      axios
+        .get('/static/data/pokemon/' + this.$route.params.id + '.json')
         .then(result => {
-          this.loading = false
-          this.pokemon.number = this.id
+          // this.loading = false
+          this.pokemon.number = this.id.padStart(3, '0')
           this.pokemon.name = result.data.name
           this.pokemon.types = result.data.types
           this.pokemon.image = result.data.sprites.front_default
@@ -60,50 +56,50 @@ export default {
         .catch(error => console.error(error))
     }
   },
-  created () {
+  created() {
     this.fetchData()
   },
   watch: {
-    '$route': 'fetchData'
+    $route: 'fetchData'
   }
 }
 </script>
 
 <style lang="scss">
-  .pokemon {
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.pokemon {
+  padding: 15px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
 
-    &__id {
-      color: #353233;
-      font-size: 24px;
-      text-align: center;
-    }
+  &__id {
+    color: #353233;
+    font-size: 24px;
+    text-align: center;
+  }
 
-    &__image {
-      margin: 0 auto 5px;
-      border: 5px solid #cbc7aa;
-      border-radius: var(--border-radius);
-      width: 230px;
+  &__image {
+    margin: 0 auto 5px;
+    border: 5px solid #cbc7aa;
+    border-radius: var(--border-radius);
+    width: 230px;
 
-      img {
-        width: 100%;
-      }
-    }
-
-    &__name {
-      text-align: center;
-      font-size: 20px;
-      text-transform: capitalize;
-    }
-
-    &__info {
-      margin: 0 5px;
-      border-top: 1px solid #f1bf41;
-      text-align: center;
+    img {
+      width: 100%;
     }
   }
+
+  &__name {
+    text-align: center;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+
+  &__info {
+    margin: 0 5px;
+    border-top: 1px solid #f1bf41;
+    text-align: center;
+  }
+}
 </style>
